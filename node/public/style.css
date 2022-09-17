@@ -37,6 +37,16 @@
   display: flex;
   flex-direction: column;
 }
+.message {
+  display: flex;
+  flex-direction: column;
+}
+.message > span {
+  background-color: var(--main-light);
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 5px;
+}
 
 .main_message_container {
   padding: 1rem;
