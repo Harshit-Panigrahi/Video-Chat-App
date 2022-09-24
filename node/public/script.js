@@ -1,5 +1,11 @@
 const socket = io("/")
 
+let peer = new Peer(undefined, {
+  path: "/peerjs",
+  host: "/",
+  port: "443",
+})
+
 const user = prompt("Enter your name: ");
 
 $(function(){
@@ -25,8 +31,21 @@ $(function(){
       socket.emit("message", $("#chat_message").val());
       $("#chat_message").val("");
     }
-  })
-  socket.on("createMessage", (msg) => {
-    $(".messages").append(`<div class="message"><span>${msg}</span></div>`)
+  });
+
+  peer.on("open", (id) => {
+    socket.emit("join-room", ROOM_ID, id, user);
+  });
+
+  socket.on("createMessage", (msg, username) => {
+    $(".messages").append(
+      `<div class="message">
+        <b>
+          <i class = "far fa-user-circle"></i>
+          <span>${username === user ? "Me" : username}</span>
+        </b>
+        <span>${msg}</span>
+      </div>`
+    )
   })
 })
