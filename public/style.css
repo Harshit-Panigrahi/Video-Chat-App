@@ -83,10 +83,20 @@
   display: none;
 }
 
+#video_grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex-grow: 1;
+}
+
 video {
   height: 300px;
   border-radius: 1rem;
   margin: 1rem;
+  width: 420px;
+  object-fit: cover;
 }
 
 @media(max-width: 650px) {
