@@ -83,6 +83,12 @@
   display: none;
 }
 
+video {
+  height: 300px;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
 @media(max-width: 650px) {
   #show_chat {
     display: flex;
