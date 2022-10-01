@@ -83,7 +83,7 @@
   display: none;
 }
 
-#video_grid {
+#video-grid {
   display: flex;
   justify-content: center;
   align-items: center;
