@@ -7,6 +7,10 @@ let peer = new Peer(undefined, {
 })
 
 const user = prompt("Enter your name: ");
+const myVideo = document.createElement("video");
+myVideo.muted = true;
+let myStream;
+
 
 $(function(){
   $("#show_chat").click(function() {
