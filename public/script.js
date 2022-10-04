@@ -14,13 +14,15 @@ let myStream;
 navigator.mediaDevices.getUserMedia({
   audio: true,
   video: true,
-}).then((stream)=>{
+})
+.then((stream)=>{
   myStream = stream;
   addStream(myVideo, stream);
   socket.on("user-connected", (userId) => {
     connectToNewUser(userId, stream);
   });
   peer.on("call", (call) => {
+    console.log("Call");
     call.answer(stream);
     const video = document.createElement("video");
     call.on("stream", (userVideoStream) => {
