@@ -37,7 +37,7 @@ function connectToNewUser(userId, stream) {
   });
 }
 
-function addVideoStream(video, stream) {
+function addStream(video, stream) {
   video.srcObject = stream;
   video.addEventListener("loadedmetadata", () => {
     video.play();
