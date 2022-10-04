@@ -94,12 +94,12 @@ $(function(){
     const enabled = myStream.getVideoTracks()[0].enabled;
     if (enabled) {
       myStream.getVideoTracks()[0].enabled = false;
-      html = `<i class="fa fa-video-camera-slash"></i>`;
+      html = `<i class="fa fa-video-slash"></i>`;
       $("#stop_video").toggleClass("background_red");
       $("#stop_video").html(html);
     } else {
       myStream.getVideoTracks()[0].enabled = true;
-      html = `<i class="fa fa-video-camera"></i>`;
+      html = `<i class="fa fa-video"></i>`;
       $("#stop_video").toggleClass("background_red");
       $("#stop_video").html(html);
     }
