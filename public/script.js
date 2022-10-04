@@ -1,5 +1,3 @@
-console.log("Testing")
-
 const socket = io("/")
 
 let peer = new Peer(undefined, {
@@ -15,34 +13,11 @@ myVideo.muted = true;
 let myStream;
 navigator.mediaDevices.getUserMedia({
   audio: true,
-  video: true,
-})
-.then((stream)=>{
+  video: false,
+}).then((stream)=>{
   myStream = stream;
-  addStream(myVideo, stream);
-  socket.on("user-connected", (userId) => {
-    console.log("user connected")
-    connectToNewUser(userId, stream);
-  });
-  peer.on("call", (call) => {
-    console.log("Call");
-    call.answer(stream);
-    const video = document.createElement("video");
-    call.on("stream", (userVideoStream) => {
-      console.log("stream")
-      addStream(video, userVideoStream);
-    });
-  });
+  addStream(myVideo, stream)
 });
-
-function connectToNewUser(userId, stream) {
-  console.log("connecting to new user");
-  const call = peer.call(userId, stream);
-  const video = document.createElement("video");
-  call.on("stream", (userVideoStream) => {
-    addStream(video, userVideoStream);
-  });
-}
 
 function addStream(video, stream) {
   video.srcObject = stream;
@@ -51,37 +26,6 @@ function addStream(video, stream) {
     $("#video-grid").append(video);
   })
 }
-
-/* 
-let myStream;
-navigator.mediaDevices
-  .getUserMedia({
-    audio: true,
-    video: false,
-  })
-  .then((stream) => {
-    myStream = stream;
-    addStream(myVideo, stream);
-    socket.on("user-connected", (userId) => {
-      connectToNewUser(userId, stream);
-    });
-    peer.on("call", (call)=>{
-      call.answer(stream);
-      const video = document.createElement("video");
-      call.on("stream", (userVideoStream) => {
-        addStream(video, userVideoStream);
-      })
-    })
-  });
-
-function connectToNewUser(userId, stream) {
-  const call = peer.call(userId, stream);
-  const video = document.createElement("video");
-  call.on("stream", (userVideoStream) => {
-    addStream(video, userVideoStream);
-  });
-}
-*/
 
 $(function(){
   $("#show_chat").click(function() {
