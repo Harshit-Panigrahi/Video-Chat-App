@@ -1,3 +1,5 @@
+console.log("Testing")
+
 const socket = io("/")
 
 let peer = new Peer(undefined, {
