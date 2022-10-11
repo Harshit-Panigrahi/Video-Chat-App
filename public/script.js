@@ -76,7 +76,7 @@ $(function () {
     }
   });
   $("#inv_btn").click(function () {
-    to = prompt("Enter the email address to invite:");
+    const to = prompt("Enter the email address to invite:");
     let data = {
       url: window.location.href,
       to: to,
@@ -91,7 +91,7 @@ $(function () {
         alert("Invite sent!");
       },
       error: function (result) {
-        console.log(result.responseJSON);
+        console.log(result);
       },
     });
   });
