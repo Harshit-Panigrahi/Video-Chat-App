@@ -27,13 +27,10 @@ app.get("/", (req, res) => {
   res.redirect(`/${uuidv4()}`);
 });
 
-app.get("/:room", (req, res) => {
-  res.render("index", { roomId: req.params.room });
-});
-
 app.post("/send-mail", (req, res) => {
   const to = req.body.to;
   const url = req.body.url;
+  console.log(to, url);
   const mailData = {
     from: "harshit.whitehat@gmail.com",
     to: to,
@@ -49,6 +46,10 @@ app.post("/send-mail", (req, res) => {
       msgId: info.messageId,
     })
   });
+});
+
+app.get("/:room", (req, res) => {
+  res.render("index", { roomId: req.params.room });
 });
 
 io.on("connection", (socket) => {
