@@ -30,7 +30,6 @@ app.get("/", (req, res) => {
 app.post("/send-mail", (req, res) => {
   const to = req.body.to;
   const url = req.body.url;
-  console.log(to, url);
   const mailData = {
     from: "harshit.whitehat@gmail.com",
     to: to,
