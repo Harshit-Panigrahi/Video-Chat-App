@@ -44,7 +44,7 @@ app.post("/send-mail", (req, res) => {
       msg: "Invitation successfully sent",
       msgId: info.messageId,
     });
-    console.log("Post request send successfully! ");
+    return console.log("Post request send successfully! ");
   });
 });
 
