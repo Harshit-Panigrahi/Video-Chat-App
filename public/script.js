@@ -84,7 +84,9 @@ $(function () {
     $.ajax({
       url: "/send-mail",
       type: "post",
-      data: "Hello its me..",
+      data: JSON.stringify(data),
+      dataType: "json",
+      contentType: "application/json",
       success: function (result) {
         alert("Invite sent!");
       },
