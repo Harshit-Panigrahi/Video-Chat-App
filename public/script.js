@@ -124,20 +124,20 @@ $(function () {
       $("#stop_video").html(html);
     }
   });
+});
 
-  peer.on("open", (id) => {
-    socket.emit("join-room", ROOM_ID, id, user);
-  });
+peer.on("open", (id) => {
+  socket.emit("join-room", ROOM_ID, id, user);
+});
 
-  socket.on("createMessage", (msg, username) => {
-    $(".messages").append(
-      `<div class="message">
-        <b>
-          <i class = "far fa-user-circle"></i>
-          <span>${username === user ? "Me" : username}</span>
-        </b>
-        <span>${msg}</span>
-      </div>`
-    );
-  });
+socket.on("createMessage", (msg, username) => {
+  $(".messages").append(
+    `<div class="message">
+      <b>
+        <i class = "far fa-user-circle"></i>
+        <span>${username === user ? "Me" : username}</span>
+      </b>
+      <span>${msg}</span>
+    </div>`
+  );
 });
