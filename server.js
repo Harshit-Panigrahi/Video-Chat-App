@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const server = require("http").Server(app);
 
-const nodemailer = require('nodemailer');
+/* const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   port: 465,
   host: "smtp.gmail.com",
@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
     pass: "",
   },
   secure: true,
-});
+}); */
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
   res.redirect(`/${uuidv4()}`);
 });
 
-app.post("/send-mail", (req, res) => {
+/* app.post("/send-mail", (req, res) => {
   const to = req.body.to;
   const url = req.body.url;
   const mailData = {
@@ -46,7 +46,7 @@ app.post("/send-mail", (req, res) => {
     });
     return console.log("Post request send successfully! ");
   });
-});
+}); */
 
 app.get("/:room", (req, res) => {
   res.render("index", { roomId: req.params.room });
