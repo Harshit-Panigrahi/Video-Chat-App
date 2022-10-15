@@ -43,7 +43,7 @@ app.post("/send-mail", (req, res) => {
     res.status(200).send({
       msg: "Invitation successfully sent",
       msgId: info.messageId,
-    })
+    });
   });
 });
 

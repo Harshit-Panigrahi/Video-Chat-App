@@ -84,13 +84,12 @@ $(function () {
     $.ajax({
       url: "/send-mail",
       type: "post",
-      data: JSON.stringify(data),
-      dataType: "json",
-      contentType: "application/json",
+      data: "Hello its me..",
       success: function (result) {
         alert("Invite sent!");
       },
       error: function (result) {
+        alert("Error sending invite");
         console.log(result);
       },
     });
