@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const server = require("http").Server(app);
 
-let nodemailer = require("nodemailer");
+const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   port: 465,
   host: "smtp.gmail.com",
@@ -44,6 +44,7 @@ app.post("/send-mail", (req, res) => {
       msg: "Invitation successfully sent",
       msgId: info.messageId,
     });
+    console.log("Post request send successfully! ");
   });
 });
 

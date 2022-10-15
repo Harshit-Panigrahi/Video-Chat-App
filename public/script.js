@@ -89,8 +89,8 @@ $(function () {
         alert("Invite sent!");
       },
       error: function (result) {
-        alert("Error sending invite");
         console.log(result);
+        alert("Error sending invite!");
       },
     });
   });
